@@ -10,7 +10,7 @@ define([
 ], function ($) {
     'use strict';
 
-    var globalOptions = {
+    const globalOptions = {
         steps: {}
     };
 
@@ -21,19 +21,19 @@ define([
         },
 
         _init: function() {
-            var self = this;
+            const self = this;
 
             $('[data-block="minicart"]').on('contentUpdated', function() {
-                var miniCart = $(this);
+                const miniCart = $(this);
 
                 $.each(self.options.steps, function(key, itemSteps) {
-                    var itemId = itemSteps.itemId;
+                    const itemId = itemSteps.itemId;
 
-                    var qtySelect = miniCart.find('#qty-item-steps-' + itemId);
+                    let qtySelect = miniCart.find('#qty-item-steps-' + itemId);
 
                     if (qtySelect.length === 0) {
-                        var qtyNode = miniCart.find('#cart-item-' + itemId + '-qty');
-                        var qtyValue = parseInt($(qtyNode).val());
+                        const qtyNode = miniCart.find('#cart-item-' + itemId + '-qty');
+                        const qtyValue = parseInt($(qtyNode).val());
 
                         $(qtyNode).hide();
 
@@ -43,9 +43,9 @@ define([
                             class: 'qty-steps',
                         });
 
-                        var selected = false;
+                        let selected = false;
                         $(itemSteps.steps).each(function(key, value) {
-                            var qtySelectOption = $('<option>');
+                            const qtySelectOption = $('<option>');
                             qtySelectOption.attr('value', value);
                             qtySelectOption.text(value);
 

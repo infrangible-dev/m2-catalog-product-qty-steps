@@ -12,7 +12,7 @@ define([
 ], function ($, domReady) {
     'use strict';
 
-    var globalOptions = {
+    const globalOptions = {
         productId: 0,
         itemId: 0,
         steps: {},
@@ -27,13 +27,13 @@ define([
         },
 
         _init: function() {
-            var self = this;
+            const self = this;
 
             domReady(function() {
-                var form = $(self.options.formIdentifier);
-                var qty = $(self.options.qtyIdentifier, form);
-                var name = 'qty_steps';
-                var id = 'qty-steps';
+                const form = $(self.options.formIdentifier);
+                let qty = $(self.options.qtyIdentifier, form);
+                let name = 'qty_steps';
+                let id = 'qty-steps';
 
                 if (qty.length === 0 && self.options.itemId > 0) {
                     qty = $('#cart-' + self.options.itemId + '-qty');
@@ -41,19 +41,19 @@ define([
                     id = 'qty-steps-' + self.options.itemId;
                 }
 
-                var qtyValue = parseInt($(qty).val());
+                const qtyValue = parseInt($(qty).val());
 
                 $(qty).hide();
 
-                var qtySelect = $('<select>', {
+                const qtySelect = $('<select>', {
                     name: name,
                     id: id,
                     class: 'qty-steps',
                 });
 
-                var selected = false;
+                let selected = false;
                 $(self.options.steps).each(function(key, value) {
-                    var qtySelectOption = $('<option>');
+                    const qtySelectOption = $('<option>');
                     qtySelectOption.attr('value', value);
                     qtySelectOption.text(value);
 
@@ -85,10 +85,10 @@ define([
                 $('body').trigger('qty-steps-initialized', [qtySelect, qty]);
                 form.trigger('form-qty-steps-initialized', [qtySelect, qty]);
 
-                var priceBoxes = $('[data-role="priceBox"]');
+                const priceBoxes = $('[data-role="priceBox"]');
 
                 priceBoxes.on('price-box-initialized', function() {
-                    var productId = $(this).data('product-id');
+                    const productId = $(this).data('product-id');
 
                     if (productId === self.options.productId) {
                         qtySelect.trigger('change');
