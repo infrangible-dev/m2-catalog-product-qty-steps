@@ -1,11 +1,18 @@
 {
     "name": "infrangible/m2-catalog-product-qty-steps",
-    "description": "Infrangible Magento 2 Catalog Product Qty Steps",
+    "description": "Replaces the free quantity field with a dropdown of fixed quantity steps (for example 1, 5, 10, 25) on product pages, in the cart and in the mini cart.",
     "type": "magento2-module",
     "version": "1.2.1",
     "license": "MIT",
     "keywords": [
-        "Magento"
+        "Magento",
+        "Magento 2",
+        "Adobe Commerce",
+        "Catalog",
+        "Cart & checkout",
+        "quantity steps drop-down",
+        "fixed order quantities",
+        "quantity increments selection"
     ],
     "homepage": "https://github.com/infrangible-dev/m2-catalog-product-qty-steps",
     "authors": [
